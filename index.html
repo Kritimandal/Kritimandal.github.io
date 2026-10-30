@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kriti Mandal — Software Developer</title>
+<meta name="description" content="Kriti Mandal is a software developer in Kathmandu, Nepal, working with Python (Django, Odoo) and PHP (Laravel) on healthcare and web systems.">
+<meta property="og:title" content="Kriti Mandal — Software Developer">
+<meta property="og:description" content="Python and PHP developer building healthcare (EHR) systems, REST APIs and web applications in Kathmandu, Nepal.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EKM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --muted: #57534e;
+  --line: #e7e5e4;
+  --accent: #0f766e;
+  --accent-soft: #e6f4f2;
+  --shadow: 0 1px 2px rgba(28, 25, 23, .04), 0 4px 16px rgba(28, 25, 23, .05);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12100f;
+    --surface: #1c1917;
+    --text: #f5f5f4;
+    --muted: #a8a29e;
+    --line: #2e2a27;
+    --accent: #5eead4;
+    --accent-soft: #123531;
+    --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12100f;
+  --surface: #1c1917;
+  --text: #f5f5f4;
+  --muted: #a8a29e;
+  --line: #2e2a27;
+  --accent: #5eead4;
+  --accent-soft: #123531;
+  --shadow: none;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.65 Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+header.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+.brand { font-weight: 700; color: var(--text); letter-spacing: -.01em; }
+.nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+.nav ul a { color: var(--muted); }
+.nav ul a:hover { color: var(--text); text-decoration: none; }
+.theme-btn {
+  border: 1px solid var(--line); background: var(--surface); color: var(--text);
+  width: 34px; height: 34px; border-radius: 8px; cursor: pointer; font-size: 15px; flex: none;
+}
+
+.hero { padding: 72px 0 48px; }
+.eyebrow { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; color: var(--accent); margin: 0 0 12px; }
+.hero h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.1; letter-spacing: -.03em; margin: 0 0 16px; }
+.hero p.lead { font-size: 18px; color: var(--muted); max-width: 640px; margin: 0 0 28px; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; border-radius: 10px; font-weight: 600; font-size: 15px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--text);
+}
+.btn:hover { text-decoration: none; border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 32px; color: var(--muted); font-size: 14px; }
+.facts strong { color: var(--text); }
+
+section { padding: 48px 0; border-top: 1px solid var(--line); }
+section h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 0 0 24px; font-weight: 600; }
+
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  padding: 20px; box-shadow: var(--shadow);
+}
+.card h3 { margin: 0 0 10px; font-size: 16px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; list-style: none; }
+.tags li {
+  font-size: 13px; padding: 3px 10px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--text);
+}
+
+.job { display: grid; grid-template-columns: 170px 1fr; gap: 8px 24px; padding: 20px 0; }
+.job + .job { border-top: 1px dashed var(--line); }
+.job .when { color: var(--muted); font-size: 14px; padding-top: 2px; }
+.job h3 { margin: 0; font-size: 17px; }
+.job .org { color: var(--muted); margin: 2px 0 10px; font-size: 15px; }
+.job ul { margin: 0; padding-left: 18px; }
+.job li { margin: 4px 0; }
+.role-change { font-size: 14px; color: var(--muted); margin: -4px 0 10px; }
+
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.project { display: flex; flex-direction: column; }
+.project p { color: var(--muted); margin: 0 0 14px; font-size: 15px; flex: 1; }
+.project .links { display: flex; gap: 14px; font-size: 14px; font-weight: 600; margin-top: 14px; }
+.project .badge {
+  align-self: flex-start; font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--accent); margin-bottom: 8px;
+}
+.subhead { font-size: 15px; font-weight: 600; margin: 32px 0 14px; }
+
+.edu { display: grid; gap: 14px; }
+.edu .card { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.edu h3 { margin: 0 0 2px; }
+.edu p { margin: 0; color: var(--muted); font-size: 15px; }
+.edu .when { color: var(--muted); font-size: 14px; white-space: nowrap; }
+
+.contact p { color: var(--muted); max-width: 560px; margin: 0 0 20px; }
+footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+
+@media (max-width: 640px) {
+  .nav ul { display: none; }
+  .hero { padding: 48px 0 32px; }
+  .job { grid-template-columns: 1fr; gap: 2px; }
+}
+@media print {
+  header.nav, .theme-btn, .actions { display: none; }
+  section { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Kriti Mandal</a>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-btn" id="theme" type="button" aria-label="Switch light or dark theme">◐</button>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Software Developer · Kathmandu, Nepal</p>
+    <h1>I build healthcare systems, APIs and web apps with Python and PHP.</h1>
+    <p class="lead">
+      I am an EHR Junior Developer at Nyaya Health Nepal, where I work on a Bahmni-based
+      Electronic Health Record system, Odoo modules and data dashboards. Before that, I built
+      Laravel, CodeIgniter and WordPress applications for clients.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:mandalcriti@gmail.com">Email me</a>
+      <a class="btn" href="https://github.com/Kritimandal" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/kriti-mandal" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="facts">
+      <span><strong>4+ years</strong> in software development</span>
+      <span><strong>B.Sc. CSIT</strong>, Tribhuvan University</span>
+      <span><strong>M.Sc. CSIT</strong> in progress</span>
+    </div>
+  </div>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="card">
+        <h3>Python</h3>
+        <ul class="tags"><li>Django</li><li>Django REST Framework</li><li>Odoo 10 / 16</li><li>pandas</li><li>scikit-learn</li></ul>
+      </div>
+      <div class="card">
+        <h3>PHP</h3>
+        <ul class="tags"><li>Laravel</li><li>CodeIgniter</li><li>WordPress</li><li>WooCommerce</li></ul>
+      </div>
+      <div class="card">
+        <h3>APIs &amp; Integration</h3>
+        <ul class="tags"><li>REST APIs</li><li>JSON-RPC</li><li>XML-RPC</li><li>Third-party APIs</li></ul>
+      </div>
+      <div class="card">
+        <h3>Databases</h3>
+        <ul class="tags"><li>MySQL</li><li>PostgreSQL</li><li>Query optimization</li><li>Stored procedures</li></ul>
+      </div>
+      <div class="card">
+        <h3>Frontend</h3>
+        <ul class="tags"><li>JavaScript</li><li>React</li><li>HTML</li><li>CSS</li><li>jQuery</li></ul>
+      </div>
+      <div class="card">
+        <h3>Tools &amp; Practices</h3>
+        <ul class="tags"><li>Git</li><li>GitHub / GitLab</li><li>Code review</li><li>Unit &amp; feature tests</li><li>Docker</li><li>Linux</li></ul>
+      </div>
+      <div class="card">
+        <h3>Healthcare Systems</h3>
+        <ul class="tags"><li>Bahmni</li><li>OpenMRS</li><li>OpenELIS</li><li>Odoo</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="when">Sep 2024 – Present</div>
+      <div>
+        <h3>EHR Junior Developer</h3>
+        <p class="org">Nyaya Health Nepal · Thapathali, Kathmandu</p>
+        <p class="role-change">Joined as Associate Software Engineer</p>
+        <ul>
+          <li>Develop and customize a Bahmni-based EHR system (OpenMRS, OpenELIS, Odoo) using Python, PHP and JavaScript.</li>
+          <li>Upgraded custom Odoo 10 modules and features to Odoo 16.</li>
+          <li>Built the Karnali Dashboard with the team using Python and Django.</li>
+          <li>Build REST APIs and integrations between systems using REST, JSON-RPC and XML-RPC.</li>
+          <li>Test, debug and support the features I build; work with Git branches, pull requests and code reviews.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Feb 2024 – Aug 2024</div>
+      <div>
+        <h3>Laravel Web Developer</h3>
+        <p class="org">Cyberlink · Thado Dhunga, Lalitpur</p>
+        <ul>
+          <li>Developed and maintained CMS websites with Laravel and WordPress.</li>
+          <li>Designed MySQL databases and integrated REST and third-party APIs.</li>
+          <li>Gathered requirements from clients and managed cPanel hosting, updates and security.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Apr 2023 – Oct 2023</div>
+      <div>
+        <h3>PHP Developer</h3>
+        <p class="org">Axis Software · Tinkune, Kathmandu</p>
+        <ul>
+          <li>Built and maintained web applications with PHP, Laravel and CodeIgniter using OOP and MVC.</li>
+          <li>Designed MySQL databases and worked with REST and third-party APIs.</li>
+          <li>Used Git-based workflows for team development.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Feb 2022 – Apr 2023</div>
+      <div>
+        <h3>Web Developer</h3>
+        <p class="org">Code Vibrant · Shantinagar, Kathmandu</p>
+        <ul>
+          <li>Built custom WordPress themes from scratch, with custom post types, page templates and Gutenberg blocks.</li>
+          <li>Installed, configured and upgraded WordPress environments.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <article class="card project">
+        <span class="badge">Python · Django REST Framework</span>
+        <h3>Expense Analysis API</h3>
+        <p>REST API that imports expense data from CSV with row-level validation and returns reports using database aggregation. Includes CRUD endpoints, filtering, pagination and automated tests on GitHub Actions.</p>
+        <ul class="tags"><li>Django</li><li>DRF</li><li>SQLite</li><li>unittest</li></ul>
+        <div class="links"><a href="https://github.com/Kritimandal/task-expense-analysis" target="_blank" rel="noopener">Code →</a></div>
+      </article>
+      <article class="card project">
+        <span class="badge">Python · Machine Learning</span>
+        <h3>Fake News Detection</h3>
+        <p>Django web app and JSON API that classifies news as real or fake using a TF-IDF and Naive Bayes model (85% accuracy on the test split). B.Sc. CSIT college project.</p>
+        <ul class="tags"><li>Django</li><li>scikit-learn</li><li>pandas</li><li>Jupyter</li></ul>
+        <div class="links"><a href="https://github.com/Kritimandal/FND" target="_blank" rel="noopener">Code →</a></div>
+      </article>
+      <article class="card project">
+        <span class="badge">PHP · Laravel</span>
+        <h3>Company Website CMS</h3>
+        <p>Laravel CMS with an admin panel for posts, categories, projects, clients, team members, testimonials and job applications, with SEO fields for every page.</p>
+        <ul class="tags"><li>Laravel 10</li><li>MySQL</li><li>Blade</li><li>Bootstrap</li></ul>
+        <div class="links"><a href="https://github.com/Kritimandal/mitsolution" target="_blank" rel="noopener">Code →</a></div>
+      </article>
+      <article class="card project">
+        <span class="badge">Python · Django</span>
+        <h3>Karnali Dashboard</h3>
+        <p>Data dashboard built with the team at Nyaya Health Nepal using Python and Django.</p>
+        <ul class="tags"><li>Django</li><li>Python</li></ul>
+      </article>
+    </div>
+
+    <p class="subhead">Client websites</p>
+    <div class="projects">
+      <article class="card project">
+        <span class="badge">E-commerce</span>
+        <h3>Hitec Vision</h3>
+        <p>Online store for electronics and home appliances in Nepal.</p>
+        <div class="links"><a href="https://hitecvision.com.np" target="_blank" rel="noopener">Live site →</a></div>
+      </article>
+      <article class="card project">
+        <span class="badge">Event &amp; content platform</span>
+        <h3>NRS Sports Foundation</h3>
+        <p>Website for a sports foundation to publish events, news and programs.</p>
+        <div class="links"><a href="https://nrssportsfoundation.org.np" target="_blank" rel="noopener">Live site →</a></div>
+      </article>
+      <article class="card project">
+        <span class="badge">WordPress</span>
+        <h3>Avocado Café</h3>
+        <p>Business website for a restaurant and café.</p>
+        <div class="links"><a href="https://avocadocafenepal.com.np" target="_blank" rel="noopener">Live site →</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu">
+      <div class="card">
+        <div>
+          <h3>M.Sc. Computer Science and Information Technology</h3>
+          <p>Central Department of CSIT, Tribhuvan University</p>
+        </div>
+        <span class="when">In progress</span>
+      </div>
+      <div class="card">
+        <div>
+          <h3>B.Sc. Computer Science and Information Technology</h3>
+          <p>Patan Multiple Campus, Tribhuvan University · 70.50%</p>
+        </div>
+        <span class="when">2023</span>
+      </div>
+      <div class="card">
+        <div>
+          <h3>Training: Python with Django (3 months)</h3>
+          <p>Mindrisers Institute of Technology</p>
+        </div>
+        <span class="when">2022</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>I am open to backend and full-stack roles where I can build reliable APIs and public-service systems. The fastest way to reach me is email.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:mandalcriti@gmail.com">mandalcriti@gmail.com</a>
+      <a class="btn" href="https://github.com/Kritimandal" target="_blank" rel="noopener">github.com/Kritimandal</a>
+      <a class="btn" href="https://www.linkedin.com/in/kriti-mandal" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year">2026</span> Kriti Mandal</div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var stored = null;
+  try { stored = localStorage.getItem('theme'); } catch (e) {}
+  if (stored === 'light' || stored === 'dark') root.setAttribute('data-theme', stored);
+  document.getElementById('theme').addEventListener('click', function () {
+    var current = root.getAttribute('data-theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
