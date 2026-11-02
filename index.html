@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kriti Mandal — Software Developer</title>
+<title>Kriti Mandal | Software Developer</title>
 <meta name="description" content="Kriti Mandal is a software developer in Kathmandu, Nepal, working with Python (Django, Odoo) and PHP (Laravel) on healthcare and web systems.">
-<meta property="og:title" content="Kriti Mandal — Software Developer">
+<meta property="og:title" content="Kriti Mandal | Software Developer">
 <meta property="og:description" content="Python and PHP developer building healthcare (EHR) systems, REST APIs and web applications in Kathmandu, Nepal.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EKM%3C/text%3E%3C/svg%3E">
@@ -123,6 +123,7 @@ section h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; 
   color: var(--accent); margin-bottom: 8px;
 }
 .subhead { font-size: 15px; font-weight: 600; margin: 32px 0 14px; }
+.more { color: var(--muted); font-size: 15px; margin: 20px 0 0; }
 
 .edu { display: grid; gap: 14px; }
 .edu .card { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -187,7 +188,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; border-top:
     <div class="skills">
       <div class="card">
         <h3>Python</h3>
-        <ul class="tags"><li>Django</li><li>Django REST Framework</li><li>Odoo 10 / 16</li><li>pandas</li><li>scikit-learn</li></ul>
+        <ul class="tags"><li>Django</li><li>Django REST Framework</li><li>Odoo 10 / 16</li><li>pandas</li><li>scikit-learn</li><li>TensorFlow / Keras</li></ul>
       </div>
       <div class="card">
         <h3>PHP</h3>
@@ -199,15 +200,15 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; border-top:
       </div>
       <div class="card">
         <h3>Databases</h3>
-        <ul class="tags"><li>MySQL</li><li>PostgreSQL</li><li>Query optimization</li><li>Stored procedures</li></ul>
+        <ul class="tags"><li>MySQL / MariaDB</li><li>PostgreSQL</li><li>Query optimization</li><li>Stored procedures</li><li>Triggers</li></ul>
       </div>
       <div class="card">
         <h3>Frontend</h3>
-        <ul class="tags"><li>JavaScript</li><li>React</li><li>HTML</li><li>CSS</li><li>jQuery</li></ul>
+        <ul class="tags"><li>JavaScript</li><li>TypeScript</li><li>React</li><li>HTML</li><li>CSS</li><li>jQuery</li></ul>
       </div>
       <div class="card">
         <h3>Tools &amp; Practices</h3>
-        <ul class="tags"><li>Git</li><li>GitHub / GitLab</li><li>Code review</li><li>Unit &amp; feature tests</li><li>Docker</li><li>Linux</li></ul>
+        <ul class="tags"><li>Git</li><li>GitHub / GitLab</li><li>Code review</li><li>PHPUnit</li><li>Vitest</li><li>GitHub Actions</li><li>Docker</li><li>Linux</li></ul>
       </div>
       <div class="card">
         <h3>Healthcare Systems</h3>
@@ -285,6 +286,20 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; border-top:
         <div class="links"><a href="https://github.com/Kritimandal/task-expense-analysis" target="_blank" rel="noopener">Code →</a></div>
       </article>
       <article class="card project">
+        <span class="badge">PHP · MySQL</span>
+        <h3>PHP Student API</h3>
+        <p>REST API in plain PHP with PDO prepared statements, MySQL stored procedures for search and reports, audit triggers that record every change, transactional bulk insert and 33 tests run against MySQL 8.</p>
+        <ul class="tags"><li>PHP 8</li><li>PDO</li><li>Stored procedures</li><li>Triggers</li><li>PHPUnit</li></ul>
+        <div class="links"><a href="https://github.com/Kritimandal/php-student-api" target="_blank" rel="noopener">Code →</a></div>
+      </article>
+      <article class="card project">
+        <span class="badge">PHP · Laravel REST API</span>
+        <h3>Laravel CMS API</h3>
+        <p>Practice REST API for a blog/CMS with Sanctum token login, admin and editor roles, a post policy, custom middleware (JSON responses, request IDs, role checks), rate-limited login and 36 feature tests.</p>
+        <ul class="tags"><li>Laravel 10</li><li>Sanctum</li><li>PHPUnit</li><li>GitHub Actions</li></ul>
+        <div class="links"><a href="https://github.com/Kritimandal/laravel-cms" target="_blank" rel="noopener">Code →</a></div>
+      </article>
+      <article class="card project">
         <span class="badge">Python · Deep Learning</span>
         <h3>Plant Disease CNN Ablation</h3>
         <p>M.Sc. seminar study with TensorFlow: a custom CNN improved one MobileNetV2 idea at a time across 38 plant disease classes. Found 62.7% train/validation leakage in the public dataset and built leakage-free splits. Best model reached 0.974 macro F1 with 8.4× fewer parameters than MobileNetV2.</p>
@@ -297,20 +312,6 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; border-top:
         <p>Django web app and JSON API that classifies news as real or fake using a TF-IDF and Naive Bayes model (85% accuracy on the test split). B.Sc. CSIT college project.</p>
         <ul class="tags"><li>Django</li><li>scikit-learn</li><li>pandas</li><li>Jupyter</li></ul>
         <div class="links"><a href="https://github.com/Kritimandal/FND" target="_blank" rel="noopener">Code →</a></div>
-      </article>
-      <article class="card project">
-        <span class="badge">PHP · Laravel REST API</span>
-        <h3>Laravel CMS API</h3>
-        <p>Practice REST API for a blog/CMS with Sanctum token login, admin and editor roles, a post policy, custom middleware (JSON responses, request IDs, role checks), rate-limited login and 36 feature tests.</p>
-        <ul class="tags"><li>Laravel 10</li><li>Sanctum</li><li>PHPUnit</li><li>GitHub Actions</li></ul>
-        <div class="links"><a href="https://github.com/Kritimandal/laravel-cms" target="_blank" rel="noopener">Code →</a></div>
-      </article>
-      <article class="card project">
-        <span class="badge">PHP · MySQL</span>
-        <h3>PHP Student API</h3>
-        <p>REST API in plain PHP with PDO prepared statements, MySQL stored procedures for search and reports, audit triggers that record every change, transactional bulk insert and 33 tests run against MySQL 8.</p>
-        <ul class="tags"><li>PHP 8</li><li>PDO</li><li>Stored procedures</li><li>Triggers</li><li>PHPUnit</li></ul>
-        <div class="links"><a href="https://github.com/Kritimandal/php-student-api" target="_blank" rel="noopener">Code →</a></div>
       </article>
       <article class="card project">
         <span class="badge">JavaScript · Frontend</span>
@@ -326,6 +327,7 @@ footer { padding: 32px 0 48px; color: var(--muted); font-size: 13px; border-top:
         <ul class="tags"><li>Django</li><li>Python</li></ul>
       </article>
     </div>
+    <p class="more">Also on GitHub: Java desktop apps with Swing: <a href="https://github.com/Kritimandal/libraryManagementSystem" target="_blank" rel="noopener">library management with MySQL</a>, <a href="https://github.com/Kritimandal/java-menu-app" target="_blank" rel="noopener">coffee kiosk</a> and <a href="https://github.com/Kritimandal/citrus-tree-search" target="_blank" rel="noopener">plant shop search</a>.</p>
 
     <p class="subhead">Client websites</p>
     <div class="projects">
