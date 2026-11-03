@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plant disease CNN ablation · Kriti Mandal</title>
+<meta name="description" content="Case study: an ablation study of MobileNetV2 ideas in a small CNN for 38 plant disease classes, with leakage-free data splits. M.Sc. CSIT seminar.">
+<link rel="canonical" href="https://kritimandal.github.io/work/plant-disease-cnn.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231b1b19'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23f6f5f1' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="shell">
+    <a class="wordmark" href="../">Kriti Mandal</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="../#work" aria-current="page">Work</a>
+      <a href="../#experience">Experience</a>
+      <a class="optional" href="../#education">Education</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch theme"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="shell">
+    <header class="case-head">
+      <a class="back" href="../#work">← All work</a>
+      <div class="entry-meta"><span class="part own">Built by me</span><span class="when">Case study · M.Sc. CSIT seminar, Tribhuvan University</span></div>
+      <h1>Which MobileNetV2 ideas actually help a small CNN?</h1>
+      <p class="lede">An ablation study on plant leaf disease classification across 38 classes. A simple custom CNN was changed one architectural idea at a time, and each change was measured for accuracy and for cost: parameters, model size and CPU latency.</p>
+    </header>
+
+    <dl class="spec">
+      <div><dt>My part</dt><dd>Study design, data splits, training, benchmarks, analysis</dd></div>
+      <div><dt>Data</dt><dd>New Plant Diseases Dataset: 87,220 images, 14 crops, 38 classes</dd></div>
+      <div><dt>Stack</dt><dd>Python, TensorFlow, Keras, scikit-learn, Streamlit</dd></div>
+      <div><dt>Links</dt><dd><a href="https://github.com/Kritimandal/plant-disease-cnn-ablation">Source</a> · <a href="https://github.com/Kritimandal/plant-disease-cnn-ablation/blob/main/docs/Seminar_Presentation.pdf">Slides (PDF)</a></dd></div>
+    </dl>
+
+    <section class="section" aria-labelledby="s1">
+      <div class="section-head"><h2 class="label" id="s1"><span class="num">01</span>The data leaked</h2></div>
+      <div class="section-body prose">
+        <p>The public dataset ships with <code>train/</code> and <code>valid/</code> folders, but it contains rotated and flipped copies of the same photographs. Each filename encodes its source photograph, so I grouped the files by that ID.</p>
+        <p>The 87,220 files come from only 47,032 distinct photographs, and the shipped folders share 8,599 of them: <strong>62.7% of <code>valid/</code> are copies of training images.</strong> Any score measured on that split is inflated.</p>
+        <p><code>scripts/make_splits.py</code> builds new splits grouped by source photograph, so no photograph appears in more than one split. Validation and test keep only original, non-augmented photographs.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Split</th><th class="num">Files</th><th class="num">Source photographs</th></tr></thead>
+            <tbody>
+              <tr><td>Train</td><td class="num">22,800</td><td class="num">16,744</td></tr>
+              <tr><td>Validation</td><td class="num">4,574</td><td class="num">4,574</td></tr>
+              <tr><td>Test</td><td class="num">9,166</td><td class="num">9,166</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>At the photograph level the classes range from 152 to 2,527 images, a 16.6 times imbalance, so macro-averaged F1 is the main metric rather than accuracy. The scores here are lower than commonly reported ones for this dataset, but they are measured on photographs the model has not seen.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="s2">
+      <div class="section-head"><h2 class="label" id="s2"><span class="num">02</span>The ladder</h2></div>
+      <div class="section-body prose">
+        <p>Each arm adds exactly one change to the arm before it, so the difference between neighbours measures that change. A pretrained MobileNetV2 with a frozen base, B0, is trained under the same protocol as a reference.</p>
+        <figure class="shot plate">
+          <img src="../assets/img/cnn-architectures.webp" width="1400" height="771" loading="lazy" alt="Diagram of architectures A0 to A4 as rows of blocks. Shaded blocks mark the change from the row above: global average pooling, batch normalization, separable convolutions, then inverted residual blocks.">
+          <figcaption>Architectures A0 to A4. Shaded blocks are the change from the arm above.</figcaption>
+        </figure>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Arm</th><th>Change</th><th class="num">Parameters</th><th class="num">Size MB</th><th class="num">CPU ms</th><th class="num">Macro F1</th></tr></thead>
+            <tbody>
+              <tr><td>A0</td><td>Custom CNN baseline</td><td class="num">3,309,542</td><td class="num">37.92</td><td class="num">23.5</td><td class="num">0.911</td></tr>
+              <tr><td>A1</td><td>+ global average pooling</td><td class="num">114,662</td><td class="num">1.36</td><td class="num">19.4</td><td class="num">0.830</td></tr>
+              <tr><td>A2</td><td>+ batch normalization</td><td class="num">115,334</td><td class="num">1.39</td><td class="num">26.2</td><td class="num">0.866</td></tr>
+              <tr><td>A3</td><td>+ depthwise separable convolutions</td><td class="num">34,278</td><td class="num">0.47</td><td class="num">26.1</td><td class="num">0.838</td></tr>
+              <tr class="hl"><td>A4</td><td>+ inverted residual blocks</td><td class="num">289,798</td><td class="num">3.52</td><td class="num">109.0</td><td class="num">0.974</td></tr>
+              <tr><td>B0</td><td>Pretrained MobileNetV2, frozen</td><td class="num">2,426,854</td><td class="num">10.90</td><td class="num">237.6</td><td class="num">0.929</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Every arm differs significantly from the A0 baseline (McNemar's exact test, p &lt; 0.001).</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="s3">
+      <div class="section-head"><h2 class="label" id="s3"><span class="num">03</span>Findings</h2></div>
+      <div class="section-body">
+        <ol class="decisions">
+          <li><div><strong>The ideas are not additive.</strong><p>Global average pooling and depthwise separable convolutions each lowered accuracy on their own. Almost all of the gain came from the inverted residual blocks in A4.</p></div></li>
+          <li><div><strong>A small model beat the pretrained reference.</strong><p>A4 reached 0.974 macro F1 and 97.9% accuracy on 9,166 held-out images, above the frozen MobileNetV2 at 0.929, with 8.4 times fewer parameters, 3.1 times less storage and 2.2 times faster CPU inference.</p></div></li>
+          <li><div><strong>FLOPs did not predict speed.</strong><p>MobileNetV2 needs fewer operations than the A0 baseline but is about ten times slower per image on a CPU. Latency has to be measured on the hardware the model will run on.</p></div></li>
+        </ol>
+        <figure class="shot plate">
+          <img src="../assets/img/cnn-flops-vs-latency.webp" width="1100" height="702" loading="lazy" alt="Scatter plot of floating point operations against measured CPU latency for each arm, showing that fewer operations did not mean lower latency.">
+          <figcaption>Operations against measured CPU latency for each arm.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="s4">
+      <div class="section-head"><h2 class="label" id="s4"><span class="num">04</span>Protocol</h2></div>
+      <div class="section-body prose">
+        <ul>
+          <li>Input 128 × 128, batch size 64, Adam at a learning rate of 0.001, categorical cross-entropy.</li>
+          <li>A fixed budget of 40 epochs with no early stopping; the weights from the best validation epoch are used.</li>
+          <li>The test split is evaluated exactly once per arm, after the weights are chosen.</li>
+          <li>Seed 42 for Python, NumPy and TensorFlow. Trained on a Tesla T4 GPU on Kaggle; latency is the median of 100 CPU runs after warm-up.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="s5">
+      <div class="section-head"><h2 class="label" id="s5"><span class="num">05</span>Limits</h2></div>
+      <div class="section-body prose">
+        <ul>
+          <li>The MobileNetV2 reference was a frozen feature extractor, with only 7% of its parameters trainable. A fully fine-tuned MobileNetV2 would be a stronger comparison.</li>
+          <li>Each arm was trained with one seed, so run-to-run variation was not measured.</li>
+          <li>A4 was still improving at the end of the 40-epoch budget, so its score is a lower bound.</li>
+          <li>The images are single leaves on plain backgrounds, and the results may not carry over to field photographs.</li>
+        </ul>
+      </div>
+    </section>
+
+    <nav class="next" aria-label="More case studies">
+      <a href="php-student-api.html"><span class="label">Previous</span><span class="title">PHP Student API</span></a>
+      <a href="../#work"><span class="label">Back</span><span class="title">All work</span></a>
+    </nav>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="shell"><span>© <span id="year">2026</span> Kriti Mandal</span><span><a href="mailto:mandalcriti@gmail.com">mandalcriti@gmail.com</a></span></div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

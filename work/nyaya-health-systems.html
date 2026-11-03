@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health information systems at Nyaya Health Nepal · Kriti Mandal</title>
+<meta name="description" content="Kriti Mandal's work on a Bahmni electronic health record, an Odoo 10 to 16 migration, an insurance claim integration and the Integrated Health Dashboard for Karnali Province.">
+<link rel="canonical" href="https://kritimandal.github.io/work/nyaya-health-systems.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231b1b19'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23f6f5f1' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="shell">
+    <a class="wordmark" href="../">Kriti Mandal</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="../#work" aria-current="page">Work</a>
+      <a href="../#experience">Experience</a>
+      <a class="optional" href="../#education">Education</a>
+      <a href="../#contact">Contact</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch theme"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="shell">
+    <header class="case-head">
+      <a class="back" href="../#work">← All work</a>
+      <div class="entry-meta"><span class="when">Case study · Sep 2024 – present</span></div>
+      <h1>Health information systems at Nyaya Health Nepal</h1>
+      <p class="lede">My day-to-day work is on a Bahmni electronic health record: extending it, upgrading the Odoo part of it, and connecting it to other systems. I am also on the team that delivered a provincial health dashboard.</p>
+    </header>
+
+    <dl class="spec">
+      <div><dt>Role</dt><dd>EHR Junior Developer. Joined as Associate Software Engineer</dd></div>
+      <div><dt>Organisation</dt><dd>Nyaya Health Nepal, Kathmandu</dd></div>
+      <div><dt>Systems</dt><dd>Bahmni: OpenMRS, OpenELIS, Odoo</dd></div>
+      <div><dt>Stack</dt><dd>Python, Django, PHP, JavaScript, Redis, Docker, Linux</dd></div>
+    </dl>
+
+    <p class="notice">This is production work for an employer. The code, screens and data are not public, so this page describes the work in words and does not include screenshots, figures or patient data.</p>
+
+    <section class="section" aria-labelledby="s1">
+      <div class="section-head"><h2 class="label" id="s1"><span class="num">01</span>The platform</h2></div>
+      <div class="section-body prose">
+        <p class="part platform">System I work on</p>
+        <p>Bahmni is an open-source hospital system that combines three applications: OpenMRS for clinical records, OpenELIS for the laboratory, and Odoo for billing and stock. Each has its own data model and API, and they exchange data with each other.</p>
+        <p>My work on it:</p>
+        <ul>
+          <li>Extending and customising Bahmni's parts with Python, PHP and JavaScript.</li>
+          <li>Designing and maintaining the APIs and integrations between systems, using REST, JSON-RPC and XML-RPC.</li>
+          <li>Finding and fixing issues in the live system across Python and PHP code.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="s2">
+      <div class="section-head"><h2 class="label" id="s2"><span class="num">02</span>Odoo 10 to 16</h2></div>
+      <div class="section-body prose">
+        <p class="part own">Built by me</p>
+        <p><strong>Requirement.</strong> Custom features written for Odoo 10 had to keep working after the move to Odoo 16.</p>
+        <p><strong>What I did.</strong> I migrated those custom features to Odoo 16 and tested each one after the move.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="s3">
+      <div class="section-head"><h2 class="label" id="s3"><span class="num">03</span>Insurance claims</h2></div>
+      <div class="section-body prose">
+        <p class="part own">Built by me</p>
+        <p><strong>Requirement.</strong> Billing in Odoo needed to work with patients' health insurance.</p>
+        <p><strong>What I built.</strong> An insurance claim integration in Odoo with three parts:</p>
+        <ul>
+          <li>an eligibility check for the patient's insurance,</li>
+          <li>claim submission,</li>
+          <li>a co-payment option for the share the patient pays.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="s4">
+      <div class="section-head"><h2 class="label" id="s4"><span class="num">04</span>Karnali dashboard</h2></div>
+      <div class="section-body prose">
+        <p class="part team">Built with a team</p>
+        <p><strong>Context.</strong> The health ministry of Karnali Province wanted the data from the province's hospitals in one dashboard.</p>
+        <p><strong>What the team delivered.</strong> The Integrated Health Dashboard, a Django application that brings hospital data into one view. It covers:</p>
+        <ul>
+          <li>patient registrations and patient visits,</li>
+          <li>bed occupancy,</li>
+          <li>gender and payment mix,</li>
+          <li>top diagnoses,</li>
+          <li>ward-wise data.</li>
+        </ul>
+        <p>I was part of the development team that built it in Python and Django.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="s5">
+      <div class="section-head"><h2 class="label" id="s5"><span class="num">05</span>Running it</h2></div>
+      <div class="section-body prose">
+        <ul>
+          <li>Improved performance with Redis caching and by optimising SQL queries and stored procedures.</li>
+          <li>Deployed applications with Docker on Linux servers.</li>
+          <li>Worked through Git branches, pull requests and code review with the rest of the team.</li>
+        </ul>
+      </div>
+    </section>
+
+    <nav class="next" aria-label="More case studies">
+      <a href="../#work"><span class="label">Back</span><span class="title">All work</span></a>
+      <a href="expense-analysis.html"><span class="label">Next case study</span><span class="title">Expense Analysis</span></a>
+    </nav>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="shell"><span>© <span id="year">2026</span> Kriti Mandal</span><span><a href="mailto:mandalcriti@gmail.com">mandalcriti@gmail.com</a></span></div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
